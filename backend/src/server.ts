@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db";
 import authRoutes from "./routes/authRoutes";
+import transactionRoutes from "./routes/transactionRoutes";
 dotenv.config();
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 app.use("/api/auth", authRoutes);
+app.use("/api/transactions", transactionRoutes);
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
