@@ -1,7 +1,7 @@
 export type CategoryType = 'revenu' | 'depense';
 
 export interface Category {
-  id: string;
+  _id: string;
   name: string;
   type: CategoryType;
 }
