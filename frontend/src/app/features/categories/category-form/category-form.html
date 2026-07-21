@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Modifier' : 'Ajouter' }} une catégorie</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+                <mat-option value="depense">Dépense</mat-option>
+                <mat-option value="revenu">Revenu</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onCancel()">Annuler</button>
+        <button mat-raised-button color="primary" type="submit">
+            {{ isEdit ? 'Modifier' : 'Ajouter' }}
+        </button>
+    </mat-dialog-actions>
+</form>
