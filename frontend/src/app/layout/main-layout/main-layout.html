@@ -1,7 +1,8 @@
-<app-header></app-header>
+<app-header (menuClick)="toggleSidenav()" [showMenuButton]="isMobile()"></app-header>
 
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened class="sidenav">
+    <mat-sidenav [mode]="isMobile() ? 'over' : 'side'" [opened]="sidenavOpened()"
+        (closedStart)="isMobile() && sidenavOpened.set(false)" class="sidenav">
         <app-sidebar></app-sidebar>
     </mat-sidenav>
 

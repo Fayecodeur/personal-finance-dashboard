@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +13,9 @@ import { ThemeService } from '../../core/services/theme';
   styleUrl: './header.scss',
 })
 export class Header {
+  @Input() showMenuButton = false;
+  @Output() menuClick = new EventEmitter<void>();
+
   constructor(
     private authService: Auth,
     private router: Router,

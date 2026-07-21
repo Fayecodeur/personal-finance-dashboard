@@ -1,126 +1,46 @@
-<h2 class="form-title">
-    {{ isEdit ? 'Modifier' : 'Ajouter' }} une transaction
-</h2>
+<h2 mat-dialog-title>{{ isEdit ? 'Modifier' : 'Ajouter' }} une transaction</h2>
 
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="transaction-form">
-
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-dialog-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+                <mat-option value="depense">Dépense</mat-option>
+                <mat-option value="revenu">Revenu</mat-option>
+            </mat-select>
+        </mat-form-field>
 
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Montant</mat-label>
+            <input matInput type="number" formControlName="amount" />
+        </mat-form-field>
 
-        <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Description</mat-label>
+            <input matInput type="text" formControlName="description" />
+        </mat-form-field>
 
-            <label for="type">Type</label>
-
-            <select id="type" formControlName="type">
-
-                <option value="depense">
-                    Dépense
-                </option>
-
-                <option value="revenu">
-                    Revenu
-                </option>
-
-            </select>
-
-        </div>
-
-
-
-        <div class="form-group">
-
-            <label for="amount">Montant</label>
-
-            <input id="amount" type="number" placeholder="Ex: 5000 FCFA" formControlName="amount" />
-
-        </div>
-
-
-
-        <div class="form-group">
-
-            <label for="description">Description</label>
-
-            <input id="description" type="text" placeholder="Ex: Achat alimentaire" formControlName="description" />
-
-        </div>
-
-
-
-        <div class="form-group">
-
-            <label for="category">Catégorie</label>
-
-            <select id="category" formControlName="category">
-
-                <option value="" disabled>
-                    Choisir une catégorie
-                </option>
-
-
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Catégorie</mat-label>
+            <mat-select formControlName="category">
                 @for (cat of data.categories; track cat._id) {
-
-                <option [value]="cat._id">
-                    {{ cat.name }}
-                </option>
-
+                <mat-option [value]="cat._id">{{ cat.name }}</mat-option>
                 }
+            </mat-select>
+        </mat-form-field>
 
-            </select>
-
-        </div>
-
-
-
-        <div class="form-group">
-
-            <label>Date</label>
-
-
-            <div class="date-input">
-
-
-                <input matInput [matDatepicker]="picker" formControlName="date" readonly />
-
-
-                <button type="button" mat-icon-button (click)="picker.open()" aria-label="Choisir une date">
-
-                    <mat-icon>
-                        calendar_today
-                    </mat-icon>
-
-                </button>
-
-
-                <mat-datepicker #picker></mat-datepicker>
-
-
-            </div>
-
-
-        </div>
-
-
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" />
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
     </mat-dialog-content>
 
-
-
-    <mat-dialog-actions>
-
-
-        <button type="button" class="cancel-btn" (click)="onCancel()">
-            Annuler
-        </button>
-
-
-
-        <button type="submit" class="submit-btn">
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onCancel()">Annuler</button>
+        <button mat-raised-button color="primary" type="submit">
             {{ isEdit ? 'Modifier' : 'Ajouter' }}
         </button>
-
-
     </mat-dialog-actions>
-
-
 </form>

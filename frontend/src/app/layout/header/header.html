@@ -1,4 +1,9 @@
 <mat-toolbar color="primary">
+    @if (showMenuButton) {
+    <button mat-icon-button (click)="menuClick.emit()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    }
     <span>Gestion Financière</span>
     <span class="spacer"></span>
     <button mat-icon-button (click)="themeService.toggleTheme()">
