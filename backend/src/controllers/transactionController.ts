@@ -70,16 +70,21 @@ export const updateTransaction = async (req: AuthRequest, res: Response) => {
     };
 
     const transaction = await Transaction.findOneAndUpdate(filter, req.body, {
-      new: true,
+      returnDocument: "after",
     });
 
     if (!transaction) {
-      return res.status(404).json({ message: "Transaction non trouvée" });
+      return res.status(404).json({
+        message: "Transaction non trouvée",
+      });
     }
 
     res.status(200).json(transaction);
   } catch (error) {
-    res.status(500).json({ message: "Erreur serveur", error });
+    res.status(500).json({
+      message: "Erreur serveur",
+      error,
+    });
   }
 };
 
