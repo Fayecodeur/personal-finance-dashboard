@@ -31,9 +31,14 @@ body {
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
+    color-scheme: light;
+  transition: color-scheme 0.2s ease;
 
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
+}
+body.dark-theme {
+  color-scheme: dark;
 }
 /* You can add global styles to this file, and also import other style files */

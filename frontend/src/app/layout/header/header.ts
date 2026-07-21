@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Auth } from '../../core/services/auth';
+import { ThemeService } from '../../core/services/theme';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class Header {
   constructor(
     private authService: Auth,
     private router: Router,
+    public themeService: ThemeService,
   ) {}
 
   logout(): void {
