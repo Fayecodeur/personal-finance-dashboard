@@ -1,4 +1,263 @@
-.full-width {
-  width: 100%;
-  margin-bottom: 8px;
+/* Titre */
+
+.form-title {
+
+  font-size:22px;
+
+  font-weight:700;
+
+  color:var(--text);
+
+  margin:0 0 20px;
+
+}
+
+
+
+/* Formulaire */
+
+.transaction-form {
+
+  width:100%;
+
+}
+
+
+
+mat-dialog-content {
+
+  padding:0 !important;
+
+}
+
+
+
+/* Groupe champ */
+
+.form-group {
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+  margin-bottom:18px;
+
+}
+
+
+
+.form-group label {
+
+  font-size:14px;
+
+  font-weight:600;
+
+  color:var(--text);
+
+}
+
+
+
+/* Inputs + Select */
+
+.form-group input,
+.form-group select {
+
+  width:100%;
+
+  height:48px;
+
+  padding:0 14px;
+
+  box-sizing:border-box;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+
+  background:var(--card);
+
+  color:var(--text);
+
+  font-size:15px;
+
+  outline:none;
+
+  transition:.2s;
+
+}
+
+
+
+.form-group input::placeholder {
+
+  color:#94a3b8;
+
+}
+
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus {
+
+  border-color:var(--primary);
+
+  box-shadow:0 0 0 3px rgba(249,115,22,0.15);
+
+}
+
+
+
+/* Select */
+
+.form-group select {
+
+  cursor:pointer;
+
+}
+
+
+
+/* Date */
+
+.date-input {
+
+  display:flex;
+
+  align-items:center;
+
+  height:48px;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+
+  background:var(--card);
+
+  padding-right:8px;
+
+}
+
+
+
+.date-input input {
+
+  border:none;
+
+  height:100%;
+
+  flex:1;
+
+}
+
+
+
+.date-input input:focus {
+
+  box-shadow:none;
+
+}
+
+
+
+::ng-deep .date-input .mat-datepicker-toggle {
+
+  color:var(--primary);
+
+}
+
+
+
+/* Boutons */
+
+mat-dialog-actions {
+
+  display:flex;
+
+  justify-content:flex-end;
+
+  gap:12px;
+
+  padding:20px 0 0 !important;
+
+}
+
+
+
+mat-dialog-actions button {
+
+  height:42px;
+
+  padding:0 22px;
+
+  border-radius:10px;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+}
+
+
+
+/* Annuler */
+
+.cancel-btn {
+
+  background:#f1f5f9;
+
+  color:var(--text);
+
+  border:none;
+
+}
+
+
+
+/* Ajouter */
+
+.submit-btn {
+
+  background:var(--primary);
+
+  color:white;
+
+  border:none;
+
+}
+
+
+
+.submit-btn:hover {
+
+  opacity:.9;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:600px) {
+
+
+  mat-dialog-actions {
+
+    flex-direction:column;
+
+  }
+
+
+  mat-dialog-actions button {
+
+    width:100%;
+
+  }
+
 }
