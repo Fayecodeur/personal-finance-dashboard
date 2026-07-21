@@ -23,6 +23,10 @@ export const routes: Routes = [
         path: 'categories',
         loadComponent: () => import('./features/categories/categories').then((m) => m.Categories),
       },
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./features/dashboard/dashboard').then((m) => m.Dashboard),
+      },
     ],
   },
   {

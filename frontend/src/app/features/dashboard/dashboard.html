@@ -1,0 +1,63 @@
+<div class="dashboard-container">
+    <h2>Tableau de bord</h2>
+
+    @if (stats()) {
+    <div class="stats-cards">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Solde actuel</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="stat-value">{{ stats()!.solde | number: '1.0-2' }} FCFA</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Total revenus</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="stat-value income">{{ stats()!.totalRevenus | number: '1.0-2' }} FCFA</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Total dépenses</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="stat-value expense">{{ stats()!.totalDepenses | number: '1.0-2' }} FCFA</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Transactions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="stat-value">{{ stats()!.totalTransactions }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="charts-row">
+        <mat-card class="chart-card">
+            <mat-card-header>
+                <mat-card-title>Répartition des dépenses</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" type="pie"></canvas>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="chart-card">
+            <mat-card-header>
+                <mat-card-title>Évolution mensuelle</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" type="line"></canvas>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    }
+</div>
