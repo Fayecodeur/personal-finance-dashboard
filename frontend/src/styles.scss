@@ -157,3 +157,84 @@ a:hover {
   background: var(--background) !important;
   color: var(--text) !important;
 }
+
+/* =========================
+   BOUTONS
+========================= */
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  padding: 0 20px !important;
+}
+
+.mat-mdc-outlined-button {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.mat-mdc-icon-button {
+  color: var(--muted) !important;
+}
+
+/* =========================
+   FORMULAIRES
+========================= */
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: var(--border) !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  background: var(--card) !important;
+  border-radius: 10px !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--primary) !important;
+}
+
+.mat-mdc-form-field-label,
+.mdc-floating-label {
+  color: var(--muted) !important;
+}
+
+.mat-mdc-input-element,
+.mat-mdc-select-value {
+  color: var(--text) !important;
+}
+
+/* =========================
+   TABLEAUX (dark mode)
+========================= */
+.mat-mdc-table {
+  background: var(--card) !important;
+}
+
+.mat-mdc-row {
+  background: var(--card) !important;
+}
+
+.mat-mdc-cell {
+  color: var(--text) !important;
+}
+
+/* =========================
+   PAGINATOR / DIALOG
+========================= */
+.mat-mdc-paginator {
+  background: var(--card) !important;
+  color: var(--muted) !important;
+  border-top: 1px solid var(--border);
+}
+
+.mat-mdc-dialog-surface {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
