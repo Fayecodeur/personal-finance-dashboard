@@ -1,3 +1,15 @@
+:host {
+  display: block;
+  height: 100%;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+}
+
 .active-link {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: var(--primary-light);
+  border-left: 3px solid var(--primary);
+}
+
+::ng-deep app-sidebar .mdc-list-item__primary-text {
+  color: var(--text);
 }

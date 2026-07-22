@@ -1,3 +1,14 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.toolbar-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+::ng-deep .app-toolbar {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border);
+}
