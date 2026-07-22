@@ -61,11 +61,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, .mat-mdc-card-title {
+h1, h2, h3 {
   font-family: var(--font-display) !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em;
   color: var(--text);
+  margin: 0 0 1px;
 }
 
 button {
@@ -237,4 +238,22 @@ a:hover {
 .mat-mdc-dialog-surface {
   background: var(--card) !important;
   color: var(--text) !important;
+}
+
+.mat-mdc-form-field-infix {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  min-height: auto !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  height: auto !important;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+html.dark-theme .mat-mdc-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
 }

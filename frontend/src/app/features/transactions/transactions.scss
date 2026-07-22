@@ -1,28 +1,47 @@
 .transactions-container {
   padding: 24px;
+  font-family: var(--font-body);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .search-field {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 table {
   width: 100%;
 }
 
-.income {
-  color: #4caf50;
+.icon-edit {
+  color: var(--primary) !important;
 }
 
-.expense {
-  color: #f44336;
+.icon-delete {
+  color: var(--danger) !important;
+}
+
+@media (max-width: 640px) {
+  .transactions-container {
+    padding: 16px;
+  }
+
+  .search-field {
+    max-width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
