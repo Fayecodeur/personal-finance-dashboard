@@ -257,3 +257,19 @@ a:hover {
 html.dark-theme .mat-mdc-row:nth-child(even) {
   background: rgba(255, 255, 255, 0.02);
 }
+
+.mdc-snackbar__surface {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.15) !important;
+  background: var(--card) !important;
+}
+.mdc-snackbar__label {
+  color: var(--text) !important;
+  font-family: var(--font-body) !important;
+}
+.app-toast-success .mdc-snackbar__surface {
+  border-left: 4px solid var(--success) !important;
+}
+.app-toast-error .mdc-snackbar__surface {
+  border-left: 4px solid var(--danger) !important;
+}

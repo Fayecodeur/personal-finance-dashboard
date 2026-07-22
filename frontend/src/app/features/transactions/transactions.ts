@@ -9,10 +9,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { TransactionService } from '../../core/services/transaction';
 import { CategoryService } from '../../core/services/category';
+import { NotificationService } from '../../core/services/notification';
 
 import { Transaction } from '../../shared/models/transaction.model';
 import { Category } from '../../shared/models/category.model';
@@ -31,7 +31,6 @@ import { TransactionForm, TransactionFormData } from './transaction-form/transac
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatSnackBarModule,
   ],
   templateUrl: './transactions.html',
   styleUrl: './transactions.scss',
@@ -55,20 +54,12 @@ export class Transactions implements OnInit {
     private transactionService: TransactionService,
     private categoryService: CategoryService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar,
+    private notification: NotificationService,
   ) {}
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadTransactions();
-  }
-
-  private showSuccess(message: string): void {
-    this.snackBar.open(message, 'Fermer', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-    });
   }
 
   loadCategories(): void {
@@ -137,15 +128,17 @@ export class Transactions implements OnInit {
         this.transactionService.updateTransaction(transaction._id, result).subscribe({
           next: () => {
             this.loadTransactions();
-            this.showSuccess('Transaction modifiée avec succès.');
+            this.notification.success('Transaction modifiée avec succès');
           },
+          error: () => this.notification.error('Erreur lors de la modification'),
         });
       } else {
         this.transactionService.createTransaction(result).subscribe({
           next: () => {
             this.loadTransactions();
-            this.showSuccess('Transaction ajoutée avec succès.');
+            this.notification.success('Transaction ajoutée avec succès');
           },
+          error: () => this.notification.error("Erreur lors de l'ajout"),
         });
       }
     });
@@ -157,8 +150,9 @@ export class Transactions implements OnInit {
     this.transactionService.deleteTransaction(id).subscribe({
       next: () => {
         this.loadTransactions();
-        this.showSuccess('Transaction supprimée avec succès.');
+        this.notification.success('Transaction supprimée');
       },
+      error: () => this.notification.error('Erreur lors de la suppression'),
     });
   }
 
