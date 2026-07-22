@@ -19,4 +19,10 @@ export class UserService {
   updateProfile(data: Partial<User>): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/profile`, data);
   }
+  changePassword(currentPassword: string, newPassword: string): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${this.apiUrl}/change-password`, {
+      currentPassword,
+      newPassword,
+    });
+  }
 }

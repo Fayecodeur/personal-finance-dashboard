@@ -1,15 +1,71 @@
 .profile-container {
   padding: 24px;
-  display: flex;
-  justify-content: center;
+  font-family: var(--font-body);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .profile-card {
-  width: 100%;
-  max-width: 500px;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 24px 20px;
+
+  h3 {
+    margin: 0 0 2px;
+    font-size: 1.05rem;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+}
+
+.icon-badge {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    color: var(--primary);
+  }
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
 }
 
 .full-width {
   width: 100%;
-  margin-bottom: 12px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .profile-container {
+    padding: 16px;
+    grid-template-columns: 1fr;
+  }
 }

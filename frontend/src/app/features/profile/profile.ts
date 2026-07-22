@@ -4,8 +4,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 import { UserService } from '../../core/services/user';
+import { NotificationService } from '../../core/services/notification';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-profile',
@@ -15,45 +17,70 @@ import { UserService } from '../../core/services/user';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   templateUrl: './profile.html',
   styleUrl: './profile.scss',
 })
 export class Profile implements OnInit {
-  form: FormGroup;
+  infoForm: FormGroup;
+  passwordForm: FormGroup;
+  hideCurrentPassword = true;
+  hideNewPassword = true;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private snackBar: MatSnackBar,
+    private notification: NotificationService,
   ) {
-    this.form = this.fb.group({
+    this.infoForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+    });
+
+    this.passwordForm = this.fb.group({
+      currentPassword: ['', Validators.required],
+      newPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   ngOnInit(): void {
     this.userService.getProfile().subscribe({
       next: (user) => {
-        this.form.patchValue({ name: user.name, email: user.email });
+        this.infoForm.patchValue({ name: user.name, email: user.email });
       },
     });
   }
 
-  onSubmit(): void {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
+  onSubmitInfo(): void {
+    if (this.infoForm.invalid) {
+      this.infoForm.markAllAsTouched();
       return;
     }
 
-    this.userService.updateProfile(this.form.value).subscribe({
+    this.userService.updateProfile(this.infoForm.value).subscribe({
+      next: () => this.notification.success('Profil mis à jour avec succès'),
+      error: (err) =>
+        this.notification.error(err.error?.message || 'Erreur lors de la mise à jour'),
+    });
+  }
+
+  onSubmitPassword(): void {
+    if (this.passwordForm.invalid) {
+      this.passwordForm.markAllAsTouched();
+      return;
+    }
+
+    const { currentPassword, newPassword } = this.passwordForm.value;
+
+    this.userService.changePassword(currentPassword, newPassword).subscribe({
       next: () => {
-        this.snackBar.open('Profil mis à jour', 'Fermer', { duration: 3000 });
+        this.notification.success('Mot de passe modifié avec succès');
+        this.passwordForm.reset();
       },
-      error: () => {
-        this.snackBar.open('Erreur lors de la mise à jour', 'Fermer', { duration: 3000 });
-      },
+      error: (err) =>
+        this.notification.error(err.error?.message || 'Erreur lors du changement de mot de passe'),
     });
   }
 }
