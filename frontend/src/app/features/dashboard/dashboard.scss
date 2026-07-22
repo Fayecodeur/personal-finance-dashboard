@@ -2,6 +2,10 @@
   padding: 24px;
 }
 
+.dashboard-container h2 {
+  margin-bottom: 20px;
+}
+
 .stats-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -12,14 +16,7 @@
 .stat-value {
   font-size: 1.5rem;
   font-weight: 600;
-}
-
-.income {
-  color: #4caf50;
-}
-
-.expense {
-  color: #f44336;
+  margin: 0;
 }
 
 .charts-row {
@@ -30,4 +27,29 @@
 
 .chart-card canvas {
   max-height: 300px;
+}
+.mat-mdc-card {
+  background: var(--card) !important;
+  border-radius: 16px !important;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(31, 41, 55, 0.05) !important;
+  padding: 4px;
+}
+
+.mat-mdc-card-header {
+  padding: 16px 20px 0 !important;
+}
+
+.mat-mdc-card-content {
+  padding: 8px 20px 20px !important;
+}
+
+.mat-mdc-card-title {
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0;
+  color: var(--muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }

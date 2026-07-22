@@ -13,3 +13,8 @@
 ::ng-deep app-sidebar .mdc-list-item__primary-text {
   color: var(--text);
 }
+::ng-deep app-sidebar .mdc-list-item__primary-text {
+  color: var(--text);
+  font-family: var(--font-body) !important;
+  font-weight: 500;
+}
