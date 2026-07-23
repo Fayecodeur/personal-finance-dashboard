@@ -3,18 +3,45 @@
   height: 100%;
   background: var(--card);
   border-right: 1px solid var(--border);
+  padding: 16px 12px;
 }
 
+/* Liste */
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Liens */
+a[mat-list-item] {
+  border-radius: 12px;
+  margin: 2px 0;
+  min-height: 48px;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+/* Hover */
+a[mat-list-item]:hover {
+  background: var(--primary-light);
+  transform: translateX(2px);
+}
+
+/* Lien actif */
 .active-link {
-  background-color: var(--primary-light);
+  background: var(--primary-light);
   border-left: 3px solid var(--primary);
 }
 
-::ng-deep app-sidebar .mdc-list-item__primary-text {
-  color: var(--text);
+/* Icônes */
+::ng-deep app-sidebar .mat-icon {
+  margin-right: 12px;
 }
+
+/* Texte */
 ::ng-deep app-sidebar .mdc-list-item__primary-text {
   color: var(--text);
   font-family: var(--font-body) !important;
   font-weight: 500;
+  font-size: .95rem;
 }

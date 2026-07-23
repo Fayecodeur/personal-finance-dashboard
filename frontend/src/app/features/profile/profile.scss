@@ -1,71 +1,315 @@
-.profile-container {
+.profile-page {
+
   padding: 24px;
   font-family: var(--font-body);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
+
 }
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  flex-wrap: wrap;
+  gap: 12px;
+
+
+  h2 {
+
+    margin: 0;
+
+    font-family: var(--font-display);
+
+    font-weight: 700;
+
+    color: var(--text);
+
+  }
+
+}
+
+
+
+
+
+/* =========================
+   CONTAINER FORMULAIRES
+========================= */
+
+
+.profile-container {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+
+  gap: 28px;
+
+  max-width: 1050px;
+
+  margin: 0 auto;
+
+}
+
+
+
+
+
+/* =========================
+   CARD
+========================= */
+
 
 .profile-card {
+
   padding: 0 !important;
+
   overflow: hidden;
+
+  border-radius: 18px;
+
 }
+
+
+
+
+
+/* =========================
+   CARD HEADER
+========================= */
+
 
 .card-heading {
+
   display: flex;
+
   align-items: center;
-  gap: 14px;
-  padding: 24px 24px 20px;
+
+  gap: 16px;
+
+  padding: 28px 28px 20px;
+
+
 
   h3 {
-    margin: 0 0 2px;
-    font-size: 1.05rem;
+
+    margin: 0 0 4px;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    color: var(--text);
+
   }
+
+
 
   .subtitle {
+
     margin: 0;
-    font-size: 0.85rem;
+
     color: var(--muted);
+
+    font-size: .9rem;
+
   }
+
 }
+
+
+
+
+
+/* =========================
+   ICON BADGE
+========================= */
+
 
 .icon-badge {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  border-radius: 12px;
+
+  width: 48px;
+
+  height: 48px;
+
+  min-width: 48px;
+
+  border-radius: 14px;
+
   background: var(--primary-light);
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
+
+
   mat-icon {
+
     color: var(--primary);
+
+    font-size: 24px;
+
   }
+
 }
+
+
+
+
+
+/* =========================
+   FORMULAIRE
+========================= */
+
 
 .form-body {
+
   display: flex;
+
   flex-direction: column;
-  gap: 18px;
-  padding: 24px;
+
+  gap: 22px;
+
+  padding: 28px;
+
 }
+
+
 
 .full-width {
+
   width: 100%;
+
 }
+
+
 
 .form-actions {
+
   display: flex;
+
   justify-content: flex-end;
-  margin-top: 4px;
+
+  margin-top: 10px;
+
 }
 
+
+
+
+
+mat-form-field {
+
+  margin-bottom: 2px;
+
+}
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
 @media (max-width: 640px) {
-  .profile-container {
+
+
+  .profile-page {
+
     padding: 16px;
-    grid-template-columns: 1fr;
+
   }
+
+
+
+  .header {
+
+    margin-bottom: 20px;
+
+  }
+
+
+
+  .header h2 {
+
+    font-size: 1.2rem;
+
+  }
+
+  .header {
+
+  p.subtitle {
+
+    margin: 6px 0 0;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    max-width: 420px;
+
+    line-height: 1.5;
+
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .header {
+
+    p.subtitle {
+
+      max-width: 280px;
+
+    }
+
+  }
+
+}
+
+
+  .profile-container {
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+  }
+
+
+
+  .card-heading {
+
+    padding: 22px 20px 18px;
+
+  }
+
+
+
+  .form-body {
+
+    padding: 20px;
+
+    gap: 18px;
+
+  }
+
+
 }
