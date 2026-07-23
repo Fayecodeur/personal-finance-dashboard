@@ -1,4 +1,4 @@
-# FinTrack — Gestion financière personnelle
+# Finance Manager — Application de gestion financière personnelle
 
 Application web full-stack permettant de suivre ses revenus, ses dépenses, son solde et d'analyser ses habitudes financières grâce à un tableau de bord.
 
