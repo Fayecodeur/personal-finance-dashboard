@@ -7,12 +7,15 @@ Projet universitaire de Master 1 — Développement Web avec Angular.
 ## Fonctionnalités
 
 - Authentification sécurisée (inscription, connexion, JWT)
+- Protection des routes : accès refusé aux pages privées sans connexion, et accès refusé à `/login`/`/register` si déjà connecté
 - Tableau de bord : solde, revenus, dépenses, graphiques (répartition par catégorie, évolution mensuelle)
 - Gestion des transactions (CRUD, recherche, tri, pagination)
 - Gestion des catégories (CRUD, recherche, pagination)
 - Profil utilisateur (modification des informations, changement de mot de passe)
 - Mode sombre persistant
 - Interface responsive
+- Page d'accueil (landing) avec présentation du projet et connexion/inscription en boîte de dialogue
+- Page 404 personnalisée
 
 ## Technologies
 
@@ -33,21 +36,58 @@ Projet universitaire de Master 1 — Développement Web avec Angular.
 
 ## Architecture
 
-personal-finance-dashboard/
-├── frontend/ # Application Angular
-│ └── src/app/
-│ ├── core/ # Services, guards, interceptors
-│ ├── shared/ # Modèles partagés
-│ ├── layout/ # Header, sidebar, layout principal
-│ └── features/ # Auth, dashboard, transactions, catégories, profil
+### Frontend
+
+```
+frontend/src/
+├── index.html
+├── main.ts
+├── styles.scss
 │
-└── backend/ # API Node.js / Express
-└── src/
-├── config/ # Connexion base de données
-├── controllers/ # Logique métier
-├── routes/ # Définition des routes API
-├── models/ # Schémas Mongoose
-└── middlewares/ # Authentification JWT
+├── app/
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   ├── app.ts / app.html / app.scss
+│   │
+│   ├── core/
+│   │   ├── guards/          # auth-guard (routes privées), guest-guard (routes publiques)
+│   │   ├── interceptors/    # Injection automatique du token JWT
+│   │   └── services/        # auth, category, dashboard, notification, theme, transaction, user...
+│   │
+│   ├── features/
+│   │   ├── auth/            # login, register
+│   │   ├── landing/         # Page d'accueil + boîte de dialogue d'authentification
+│   │   ├── dashboard/       # Statistiques et graphiques
+│   │   ├── transactions/    # CRUD transactions + formulaire
+│   │   ├── categories/      # CRUD catégories + formulaire
+│   │   └── profile/         # Informations utilisateur + changement de mot de passe
+│   │
+│   ├── layout/
+│   │   ├── header/          # Barre supérieure (branding, thème, déconnexion)
+│   │   ├── sidebar/         # Navigation principale
+│   │   └── main-layout/     # Structure englobant les pages privées
+│   │
+│   └── shared/
+│       ├── models/          # Interfaces TypeScript (User, Category, Transaction)
+│       └── not-found/       # Page 404
+│
+└── environments/
+    └── environment.ts
+```
+
+### Backend
+
+```
+backend/src/
+├── server.ts
+├── config/
+│   └── db.ts                # Connexion MongoDB Atlas
+├── controllers/              # Logique métier (auth, users, transactions, categories, dashboard)
+├── routes/                   # Définition des routes API
+├── models/                   # Schémas Mongoose (User, Transaction, Category)
+└── middlewares/
+    └── authMiddleware.ts     # Vérification du token JWT
+```
 
 ## Installation
 
@@ -64,9 +104,12 @@ npm install
 ```
 
 Créer un fichier `.env` à la racine de `backend/` :
+
+```
 PORT=5000
 MONGO_URI=votre_chaine_de_connexion_mongodb
 JWT_SECRET=votre_secret_jwt
+```
 
 Lancer le serveur :
 
@@ -103,4 +146,4 @@ Toutes les routes (sauf `/auth`) nécessitent un token JWT dans le header `Autho
 
 ## Auteur
 
-Demba — Projet réalisé dans le cadre du cours Web Services, Master 1.
+Demba Faye — Projet réalisé dans le cadre du cours Web Services, Master 1.
