@@ -9,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Category } from '../../../shared/models/category.model';
 import { Transaction } from '../../../shared/models/transaction.model';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface TransactionFormData {
   transaction: Transaction | null;
@@ -26,6 +27,7 @@ export interface TransactionFormData {
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
   ],
   templateUrl: './transaction-form.html',
   styleUrl: './transaction-form.scss',

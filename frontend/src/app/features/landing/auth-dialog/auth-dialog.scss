@@ -1,0 +1,16 @@
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 320px;
+  padding-top: 8px;
+}
+.full-width { width: 100%; }
+.error-message { color: var(--danger); font-size: 0.85rem; margin: 0; }
+.switch-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+.switch-text a { cursor: pointer; color: var(--primary); font-weight: 600; }

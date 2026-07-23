@@ -3,45 +3,360 @@
   font-family: var(--font-body);
 }
 
+
+/* =========================
+   HEADER PAGE
+========================= */
+
 .header {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin-bottom: 20px;
-  flex-wrap: wrap;
+
   gap: 12px;
+
 }
+
+
+.header h2 {
+
+  font-family: var(--font-display);
+  color: var(--text);
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  margin: 0;
+
+}
+
+
+/* =========================
+   RECHERCHE
+========================= */
 
 .search-field {
+
   width: 100%;
   max-width: 400px;
-  margin-bottom: 8px;
+
+  margin-bottom: 16px;
+
 }
+
+
+
+/* =========================
+   TABLEAU
+========================= */
 
 table {
+
   width: 100%;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px 16px 0 0;
+
+  overflow: hidden;
+
 }
+
+
+
+/* Header tableau */
+
+.mat-mdc-header-row {
+
+  background: var(--primary-light);
+
+}
+
+
+
+.mat-mdc-header-cell {
+
+  font-family: var(--font-body) !important;
+
+  font-size: 13px;
+
+  font-weight: 700 !important;
+
+  color: var(--text) !important;
+
+  border-bottom-color: var(--border) !important;
+
+}
+
+
+
+/* Cellules */
+
+.mat-mdc-cell {
+
+  font-family: var(--font-body) !important;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: var(--text) !important;
+
+  border-bottom-color: var(--border) !important;
+
+}
+
+
+
+/* Hover ligne */
+
+.mat-mdc-row {
+
+  transition: background-color .2s ease;
+
+}
+
+
+.mat-mdc-row:hover {
+
+  background: var(--primary-light) !important;
+
+}
+
+
+
+/* =========================
+   MONTANTS
+========================= */
+
+.amount {
+
+  font-family: var(--font-mono);
+
+  font-weight: 700;
+
+}
+
+
+.income {
+
+  color: var(--success) !important;
+
+}
+
+
+.expense {
+
+  color: var(--danger) !important;
+
+}
+
+
+
+/* =========================
+   BADGES TYPE
+========================= */
+
+.badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 5px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+}
+
+
+
+.badge-income {
+
+  background: rgba(22,163,74,.12);
+
+  color: var(--success);
+
+}
+
+
+
+.badge-expense {
+
+  background: rgba(220,38,38,.12);
+
+  color: var(--danger);
+
+}
+
+
+
+/* =========================
+   ACTIONS ICONES
+========================= */
+
 
 .icon-edit {
+
   color: var(--primary) !important;
+
 }
+
+
 
 .icon-delete {
+
   color: var(--danger) !important;
+
 }
 
+
+
+.mat-mdc-icon-button {
+
+  border-radius: 10px !important;
+
+  transition: transform .2s ease, background .2s ease;
+
+}
+
+
+
+.mat-mdc-icon-button:hover {
+
+  transform: translateY(-2px);
+
+  background: var(--primary-light);
+
+}
+
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.mat-mdc-paginator {
+
+  background: var(--card) !important;
+
+  border: 1px solid var(--border);
+
+  border-top: none;
+
+  border-radius: 0 0 16px 16px;
+
+  color: var(--text) !important;
+
+}
+
+
+
+.mat-mdc-paginator-container {
+
+  font-family: var(--font-body) !important;
+
+}
+
+
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+
 @media (max-width: 640px) {
+
+
   .transactions-container {
+
     padding: 16px;
+
   }
+
+
+
+  /* garde titre + bouton sur la même ligne */
+
+  .header {
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+  }
+
+
+
+  .header h2 {
+
+    font-size: 1.2rem;
+
+  }
+
+
+
+  .header button {
+
+    height: 38px !important;
+
+    padding: 0 16px !important;
+
+    font-size: .85rem;
+
+  }
+
+
 
   .search-field {
+
     max-width: 100%;
+
   }
 
+
+
   table {
+
     display: block;
+
     overflow-x: auto;
+
     white-space: nowrap;
+
   }
+
+
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+
+    padding-left: 12px !important;
+
+    padding-right: 12px !important;
+
+  }
+
+
+
+  .mat-mdc-paginator {
+
+    border-radius: 0 0 12px 12px;
+
+  }
+
+
 }

@@ -1,47 +1,373 @@
 .categories-container {
+
   padding: 24px;
   font-family: var(--font-body);
+
 }
 
+
+
+/* =========================
+   HEADER
+========================= */
+
+
 .header {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin-bottom: 20px;
+
   flex-wrap: wrap;
   gap: 12px;
+
+
+  h2 {
+
+    margin: 0;
+
+    font-family: var(--font-display);
+
+    font-weight: 700;
+
+    color: var(--text);
+
+  }
+
 }
+
+
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
 
 .search-field {
+
   width: 100%;
+
   max-width: 400px;
-  margin-bottom: 8px;
+
+  margin-bottom: 16px;
+
 }
+
+
+
+
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+
+.table-container {
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+}
+
+
+
 
 table {
+
   width: 100%;
+
+  background: transparent !important;
+
 }
+
+
+
+
+/* =========================
+   HEADER TABLE
+========================= */
+
+
+.mat-mdc-header-row {
+
+  background: var(--primary-light);
+
+}
+
+
+
+.mat-mdc-header-cell {
+
+  color: var(--text) !important;
+
+  font-family: var(--font-body);
+
+  font-weight: 700;
+
+  font-size: 0.85rem;
+
+  border-bottom: 1px solid var(--border) !important;
+
+}
+
+
+
+
+
+/* =========================
+   CELLULES
+========================= */
+
+
+.mat-mdc-cell {
+
+  color: var(--text) !important;
+
+  font-family: var(--font-body);
+
+  font-size: 0.9rem;
+
+  border-bottom-color: var(--border) !important;
+
+}
+
+
+
+
+.mat-mdc-row {
+
+  transition: background 0.2s ease;
+
+}
+
+
+
+.mat-mdc-row:hover {
+
+  background: var(--primary-light) !important;
+
+}
+
+
+
+
+
+/* =========================
+   ICONES ACTIONS
+========================= */
+
 
 .icon-edit {
+
   color: var(--primary) !important;
+
 }
+
+
+
+.icon-edit:hover {
+
+  background: rgba(249,115,22,0.12) !important;
+
+}
+
+
+
+
 
 .icon-delete {
+
   color: var(--danger) !important;
+
 }
 
+
+
+.icon-delete:hover {
+
+  background: rgba(220,38,38,0.12) !important;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.mat-mdc-paginator {
+
+  background: var(--card) !important;
+
+  border-top: 1px solid var(--border);
+
+  border-radius: 0 0 16px 16px;
+
+  color: var(--muted) !important;
+
+}
+
+
+
+.mat-mdc-paginator-container {
+
+  min-height: 58px;
+
+  padding: 0 20px !important;
+
+  font-family: var(--font-body);
+
+}
+
+
+
+/* texte pagination */
+
+.mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator-range-label {
+
+  color: var(--muted) !important;
+
+  font-size: 0.85rem;
+
+}
+
+
+
+/* select pagination */
+
+.mat-mdc-paginator .mat-mdc-form-field {
+
+  width: auto;
+
+}
+
+
+
+/* boutons pagination */
+
+.mat-mdc-paginator-navigation-previous,
+.mat-mdc-paginator-navigation-next,
+.mat-mdc-paginator-navigation-first,
+.mat-mdc-paginator-navigation-last {
+
+  border-radius: 10px !important;
+
+}
+
+
+
+.mat-mdc-paginator button:hover {
+
+  background: var(--primary-light) !important;
+
+}
+
+
+
+
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+
 @media (max-width: 640px) {
-  .categories-container {
+
+
+  .transactions-container {
+
     padding: 16px;
+
   }
+
+
+
+  /* garde titre + bouton sur la même ligne */
+
+  .header {
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+  }
+
+
+
+  .header h2 {
+
+    font-size: 1.2rem;
+
+  }
+
+
+
+  .header button {
+
+    height: 38px !important;
+
+    padding: 0 16px !important;
+
+    font-size: .85rem;
+
+  }
+
+
 
   .search-field {
+
     max-width: 100%;
+
   }
 
+
+
   table {
+
     display: block;
+
     overflow-x: auto;
+
     white-space: nowrap;
+
   }
+
+
+
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+
+    padding-left: 12px !important;
+
+    padding-right: 12px !important;
+
+  }
+
+
+
+  .mat-mdc-paginator {
+
+    border-radius: 0 0 12px 12px;
+
+  }
+
+
 }

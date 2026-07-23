@@ -1,7 +1,13 @@
 @use '@angular/material' as mat;
 
+
+/* =========================
+   ANGULAR MATERIAL THEME
+========================= */
+
 html {
   height: 100%;
+
   @include mat.theme(
     (
       color: (
@@ -14,262 +20,609 @@ html {
   );
 }
 
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+
 :root {
   --primary: #f97316;
   --primary-light: #fff7ed;
+
   --background: #f8fafc;
   --card: #ffffff;
+
   --text: #1f2937;
   --muted: #64748b;
+
   --border: #e5d9b8;
+
   --danger: #dc2626;
   --success: #16a34a;
+
 
   --font-display: 'Sora', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  --mdc-outlined-text-field-container-shape: 10px;
-  --mdc-filled-text-field-container-shape: 10px;
+
+  --mdc-outlined-text-field-container-shape: 12px;
+  --mdc-filled-text-field-container-shape: 12px;
 }
 
+
+
+/* =========================
+   DARK MODE
+========================= */
+
 html.dark-theme {
+
   --background: #0b1120;
   --card: #131b2e;
+
   --text: #e2e8f0;
   --muted: #94a3b8;
+
   --border: #1e293b;
-   --primary-light: #2b2117;
+
+  --primary-light: #2b2117;
+
   color-scheme: dark;
 }
+
+
+
+/* =========================
+   GLOBAL
+========================= */
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+
+html,
+body {
+
   margin: 0;
   padding: 0;
+
   height: 100%;
+
   font-family: var(--font-body);
+
   background: var(--background);
   color: var(--text);
-  transition: background-color 0.2s ease, color 0.2s ease;
+
+  transition:
+    background-color .2s ease,
+    color .2s ease;
 }
+
 
 body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
+
+
+/* =========================
+   TITRES
+========================= */
+
+h1,
+h2,
+h3 {
+
   font-family: var(--font-display) !important;
+
   font-weight: 700 !important;
+
   letter-spacing: -0.01em;
+
   color: var(--text);
-  margin: 0 0 1px;
+
+  margin: 0 0 16px;
 }
 
-button {
-  font-family: inherit;
+
+
+
+/* =========================
+   BOUTONS FINTRACK
+========================= */
+
+
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-stroked-button {
+
+  font-family: var(--font-body) !important;
+
+  font-weight: 600 !important;
+
+  border-radius: 12px !important;
+
+  height: 42px;
+
+  padding: 0 22px !important;
+
+  transition: all .2s ease;
 }
 
-.mat-mdc-card {
-  background: var(--card) !important;
-  border-radius: 16px !important;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(31, 41, 55, 0.05) !important;
+
+
+/* bouton principal */
+
+.mat-mdc-raised-button.mat-primary {
+
+  background: var(--primary) !important;
+
+  color: white !important;
+
+  box-shadow: none !important;
 }
 
-.mat-mdc-dialog-container {
-  border-radius: 18px !important;
+
+.mat-mdc-raised-button.mat-primary:hover {
+
+  transform: translateY(-1px);
+
+  opacity: .9;
 }
 
-.mat-mdc-form-field {
-  width: 100%;
+
+
+/* bouton secondaire */
+
+.mat-mdc-stroked-button {
+
+  border: 1px solid var(--border) !important;
+
+  color: var(--text) !important;
+
+  background: transparent;
 }
 
-table.mat-mdc-table {
-  background: var(--card);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  width: 100%;
-}
 
-.mat-mdc-header-row {
+.mat-mdc-stroked-button:hover {
+
   background: var(--primary-light);
 }
 
-.mat-mdc-header-cell {
-  color: var(--muted) !important;
-  font-weight: 600 !important;
-  font-family: var(--font-body);
-}
 
-.mat-mdc-row:hover {
-  background: rgba(249, 115, 22, 0.04);
-}
 
-.mat-mdc-cell, .mat-mdc-header-cell {
-  border-bottom-color: var(--border) !important;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 10px;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-.amount {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.amount-positive, .income {
-  color: var(--success) !important;
-}
-.amount-negative, .expense {
-  color: var(--danger) !important;
-}
-
-.accent-card {
-  border-left: 4px solid var(--primary) !important;
-}
-.accent-card.income {
-  border-left-color: var(--success) !important;
-}
-.accent-card.expense {
-  border-left-color: var(--danger) !important;
-}
-.mat-drawer-container,
-.mat-drawer-content {
-  background: var(--background) !important;
-  color: var(--text) !important;
-}
-
-/* =========================
-   BOUTONS
-========================= */
-.mat-mdc-raised-button,
-.mat-mdc-unelevated-button {
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em;
-  padding: 0 20px !important;
-}
-
-.mat-mdc-outlined-button {
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  border-color: var(--border) !important;
-  color: var(--text) !important;
-}
+/* bouton icône */
 
 .mat-mdc-icon-button {
+
   color: var(--muted) !important;
+
+  border-radius: 12px !important;
 }
+
+
+
+
+
+/* =========================
+   CARDS / DIALOG
+========================= */
+
+
+.mat-mdc-card {
+
+  background: var(--card) !important;
+
+  border-radius: 16px !important;
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 4px 16px rgba(31,41,55,.05) !important;
+}
+
+
+.mat-mdc-dialog-surface {
+
+  background: var(--card) !important;
+
+  color: var(--text) !important;
+
+  border-radius: 18px !important;
+}
+
+
+
+
 
 /* =========================
    FORMULAIRES
 ========================= */
-.mat-mdc-form-field .mdc-notched-outline__leading,
-.mat-mdc-form-field .mdc-notched-outline__notch,
-.mat-mdc-form-field .mdc-notched-outline__trailing {
-  border-color: var(--border) !important;
+
+
+.mat-mdc-form-field {
+
+  width:100%;
+
+  font-family: var(--font-body);
 }
+
+
 
 .mat-mdc-text-field-wrapper {
+
   background: var(--card) !important;
-  border-radius: 10px !important;
+
+  border-radius: 12px !important;
+
 }
 
-.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
-.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
-.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
-  border-color: var(--primary) !important;
+
+
+.mat-mdc-form-field-infix {
+
+  min-height: 52px !important;
+
+  padding-top: 14px !important;
+
+  padding-bottom: 14px !important;
+
 }
 
-.mat-mdc-form-field-label,
-.mdc-floating-label {
-  color: var(--muted) !important;
-}
+
 
 .mat-mdc-input-element,
 .mat-mdc-select-value {
+
   color: var(--text) !important;
+
+  font-family: var(--font-body) !important;
+
+  font-size: 15px !important;
+
 }
+
+
+
+.mdc-floating-label {
+
+  color: var(--muted) !important;
+
+  font-family: var(--font-body) !important;
+
+}
+
+
+
+/* bordure */
+
+.mat-mdc-form-field
+.mdc-notched-outline__leading,
+.mat-mdc-form-field
+.mdc-notched-outline__notch,
+.mat-mdc-form-field
+.mdc-notched-outline__trailing {
+
+  border-color: var(--border) !important;
+
+}
+
+
+
+/* focus */
+
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__trailing {
+
+  border-color: var(--primary) !important;
+
+}
+
+
 
 /* =========================
-   TABLEAUX (dark mode)
+   TABLEAUX
 ========================= */
+
+
 .mat-mdc-table {
+
   background: var(--card) !important;
+
+  border-radius:14px;
+
+  overflow:hidden;
+
+  border:1px solid var(--border);
+
+  width:100%;
+
+  font-family: var(--font-body) !important;
+
 }
 
-.mat-mdc-row {
-  background: var(--card) !important;
+
+
+.mat-mdc-header-row {
+
+  background: var(--primary-light);
+
 }
+
+
+
+.mat-mdc-header-cell {
+
+  color: var(--text) !important;
+
+  font-family: var(--font-body) !important;
+
+  font-weight:700 !important;
+
+  font-size:13px;
+}
+
+
 
 .mat-mdc-cell {
-  color: var(--text) !important;
+
+  color:var(--text) !important;
+
+  font-family:var(--font-body) !important;
+
+  font-size:14px;
+
+  font-weight:500;
+}
+
+
+
+.mat-mdc-row {
+
+  background:var(--card) !important;
+
+}
+
+
+
+.mat-mdc-row:hover {
+
+  background:rgba(249,115,22,.04);
+}
+
+
+
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+
+  border-bottom-color:var(--border) !important;
+
+}
+
+
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+
+.mat-mdc-paginator {
+
+  background:var(--card) !important;
+
+  color:var(--muted) !important;
+
+  border-top:1px solid var(--border);
+
+}
+
+
+
+
+
+/* =========================
+   FINANCE
+========================= */
+
+
+.amount {
+
+  font-family:var(--font-mono);
+
+  font-weight:600;
+
+  font-variant-numeric:tabular-nums;
+}
+
+
+
+.income {
+
+  color:var(--success) !important;
+
+}
+
+
+
+.expense {
+
+  color:var(--danger) !important;
+
+}
+
+
+
+
+
+/* =========================
+   DRAWER
+========================= */
+
+
+.mat-drawer-container,
+.mat-drawer-content {
+
+  background:var(--background) !important;
+
+  color:var(--text) !important;
+
+}
+
+
+
+
+
+/* =========================
+   LINKS
+========================= */
+
+
+a {
+
+  color:var(--primary);
+
+  text-decoration:none;
+
+  font-weight:500;
+}
+
+
+a:hover {
+
+  text-decoration:underline;
+
+}
+
+
+
+
+/* =========================
+   SNACKBAR
+========================= */
+
+
+.mdc-snackbar__surface {
+
+  background:var(--card) !important;
+
+  border-radius:12px !important;
+
+}
+
+
+.mdc-snackbar__label {
+
+  color:var(--text) !important;
+
+  font-family:var(--font-body) !important;
+
+}
+
+
+
+.app-toast-success .mdc-snackbar__surface {
+
+  border-left:4px solid var(--success) !important;
+
+}
+
+
+
+.app-toast-error .mdc-snackbar__surface {
+
+  border-left:4px solid var(--danger) !important;
+
+}
+
+
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+
+::-webkit-scrollbar {
+
+  width:8px;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+  background:var(--border);
+
+  border-radius:10px;
+
+}
+
+
+
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+
+.error-message,
+.success-message {
+
+  font-family:var(--font-body);
+
 }
 
 /* =========================
-   PAGINATOR / DIALOG
+   BADGES TRANSACTIONS
 ========================= */
-.mat-mdc-paginator {
-  background: var(--card) !important;
-  color: var(--muted) !important;
-  border-top: 1px solid var(--border);
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 12px;
+
+  border-radius: 999px;
+
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.mat-mdc-dialog-surface {
-  background: var(--card) !important;
-  color: var(--text) !important;
+
+/* Revenu */
+
+.badge-income {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
 }
 
-.mat-mdc-form-field-infix {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  min-height: auto !important;
+
+/* Dépense */
+
+.badge-expense {
+  background: rgba(220, 38, 38, 0.12);
+  color: var(--danger);
 }
 
-.mat-mdc-text-field-wrapper {
-  height: auto !important;
-}
+// text pagination
+.mat-mdc-paginator,
+.mat-mdc-paginator-container,
+.mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator-range-label,
+.mat-mdc-select-value,
+.mat-mdc-select-trigger,
+.mat-mdc-button {
 
-.mat-mdc-row:nth-child(even) {
-  background: rgba(0, 0, 0, 0.015);
-}
-
-html.dark-theme .mat-mdc-row:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.mdc-snackbar__surface {
-  border-radius: 12px !important;
-  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.15) !important;
-  background: var(--card) !important;
-}
-.mdc-snackbar__label {
-  color: var(--text) !important;
   font-family: var(--font-body) !important;
-}
-.app-toast-success .mdc-snackbar__surface {
-  border-left: 4px solid var(--success) !important;
-}
-.app-toast-error .mdc-snackbar__surface {
-  border-left: 4px solid var(--danger) !important;
+
 }

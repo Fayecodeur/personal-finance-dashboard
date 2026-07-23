@@ -1,7 +1,12 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth-guard';
-
+import { guestGuard } from './core/guards/guest-guard';
 export const routes: Routes = [
+  {
+    path: '',
+    canActivate: [guestGuard],
+    loadComponent: () => import('./features/landing/landing').then((m) => m.Landing),
+  },
   {
     path: 'login',
     loadComponent: () => import('./features/auth/login/login').then((m) => m.Login),
@@ -11,7 +16,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/register/register').then((m) => m.Register),
   },
   {
-    path: '',
+    path: 'app',
     canActivate: [authGuard],
     loadComponent: () => import('./layout/main-layout/main-layout').then((m) => m.MainLayout),
     children: [
@@ -32,15 +37,8 @@ export const routes: Routes = [
         path: 'profile',
         loadComponent: () => import('./features/profile/profile').then((m) => m.Profile),
       },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: 'login',
-  },
+  { path: '**', redirectTo: '' },
 ];

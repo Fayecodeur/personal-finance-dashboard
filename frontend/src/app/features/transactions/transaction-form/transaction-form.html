@@ -8,16 +8,25 @@
                 <mat-option value="depense">Dépense</mat-option>
                 <mat-option value="revenu">Revenu</mat-option>
             </mat-select>
+            @if (form.get('type')?.invalid && form.get('type')?.touched) {
+            <mat-error>Le type est requis</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Montant</mat-label>
             <input matInput type="number" formControlName="amount" />
+            @if (form.get('amount')?.invalid && form.get('amount')?.touched) {
+            <mat-error>Montant requis, supérieur à 0</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Description</mat-label>
             <input matInput type="text" formControlName="description" />
+            @if (form.get('description')?.invalid && form.get('description')?.touched) {
+            <mat-error>La description est requise</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
@@ -27,6 +36,9 @@
                 <mat-option [value]="cat._id">{{ cat.name }}</mat-option>
                 }
             </mat-select>
+            @if (form.get('category')?.invalid && form.get('category')?.touched) {
+            <mat-error>La catégorie est requise</mat-error>
+            }
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
@@ -34,6 +46,9 @@
             <input matInput [matDatepicker]="picker" formControlName="date" />
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+            @if (form.get('date')?.invalid && form.get('date')?.touched) {
+            <mat-error>La date est requise</mat-error>
+            }
         </mat-form-field>
     </mat-dialog-content>
 

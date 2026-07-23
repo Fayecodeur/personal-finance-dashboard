@@ -1,0 +1,467 @@
+:host {
+  display: block;
+  font-family: var(--font-body);
+  background: var(--background);
+  min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 48px;
+
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+
+  z-index: 1000;
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* Logo */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+
+  background: var(--primary);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+
+  color: var(--text);
+}
+
+
+/* Menu desktop */
+
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.desktop-menu a {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 500;
+}
+
+
+/* Menu mobile caché sur PC */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* Dropdown mobile caché */
+
+.mobile-dropdown {
+  display: none;
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  text-align: center;
+
+  padding: 160px 24px 60px;
+
+  max-width: 720px;
+  margin: auto;
+}
+
+
+.hero-badge {
+
+  display: inline-block;
+
+  background: var(--primary-light);
+  color: var(--primary);
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  font-size: .85rem;
+  font-weight: 600;
+
+  margin-bottom: 20px;
+}
+
+
+.hero h1 {
+
+  font-size: 2.6rem;
+
+  line-height: 1.2;
+
+  margin-bottom: 16px;
+
+}
+
+
+.hero p {
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+
+  margin-bottom: 32px;
+
+}
+
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+
+.hero-actions {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+
+}
+
+
+.hero-btn {
+
+  height: 46px !important;
+
+  padding: 0 28px !important;
+
+  border-radius: 14px !important;
+
+  font-family: var(--font-body) !important;
+
+  font-weight: 600 !important;
+
+  font-size: .95rem;
+
+}
+
+
+
+/* =========================
+   FEATURES
+========================= */
+
+
+.features {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+
+  gap:20px;
+
+  max-width:1000px;
+
+  margin:40px auto 80px;
+
+  padding:0 24px;
+
+}
+
+
+.feature-card {
+
+  background: var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:16px;
+
+  padding:24px;
+
+}
+
+
+.feature-card h3 {
+
+  margin:0 0 8px;
+
+  font-size:1.05rem;
+
+}
+
+
+.feature-card p {
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+  line-height:1.5;
+
+}
+
+
+.icon-badge {
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:10px;
+
+  background:var(--primary-light);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:12px;
+
+
+  mat-icon {
+
+    color:var(--primary);
+
+  }
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+.landing-footer {
+
+  text-align:center;
+
+  padding:24px;
+
+  color:var(--muted);
+
+  font-size:.85rem;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:640px){
+
+
+  /* NAVBAR */
+
+  .navbar {
+
+    height:70px;
+
+    padding:14px 20px;
+
+  }
+
+
+  .desktop-menu {
+
+    display:none;
+
+  }
+
+
+  .mobile-menu {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+  }
+
+
+  .brand-mark {
+
+    width:32px;
+    height:32px;
+
+  }
+
+
+  .brand-name {
+
+    font-size:1.05rem;
+
+  }
+
+
+
+  /* MENU OUVERT */
+
+  .mobile-dropdown {
+
+    position:fixed;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+
+    top:80px;
+
+    left:20px;
+
+    right:20px;
+
+
+    padding:20px;
+
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+
+    z-index:999;
+
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+  }
+
+
+  .mobile-dropdown a {
+
+    text-align:center;
+
+    cursor:pointer;
+
+  }
+
+
+  .mobile-dropdown button {
+
+    width:100%;
+
+  }
+
+
+
+  /* HERO */
+
+  .hero {
+
+    padding:120px 20px 40px;
+
+  }
+
+
+  .hero h1 {
+
+    font-size:1.9rem;
+
+  }
+
+
+  .hero p {
+
+    font-size:.95rem;
+
+  }
+
+
+
+  /* BUTTONS */
+
+  .hero-actions {
+
+    flex-direction:column;
+
+    width:100%;
+
+    gap:12px;
+
+  }
+
+
+  .hero-btn {
+
+    width:100%;
+
+  }
+
+
+
+  /* FEATURES */
+
+
+  .features {
+
+    grid-template-columns:1fr;
+
+    padding:0 20px;
+
+    margin:20px auto 50px;
+
+  }
+
+
+  .feature-card {
+
+    padding:20px;
+
+  }
+
+}

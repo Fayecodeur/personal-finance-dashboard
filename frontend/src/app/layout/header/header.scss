@@ -12,3 +12,44 @@
   color: var(--text) !important;
   border-bottom: 1px solid var(--border);
 }
+
+
+/* Avatar utilisateur */
+
+.avatar-button {
+  margin-left: 8px;
+}
+
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background: var(--primary);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* Menu profil */
+
+::ng-deep .user-menu {
+  margin-top: 8px;
+}
+
+
+::ng-deep .user-menu .mat-mdc-menu-item {
+  border-radius: 10px;
+}
+
+
+::ng-deep .user-menu .mat-mdc-menu-item:hover {
+  background: var(--primary-light);
+}

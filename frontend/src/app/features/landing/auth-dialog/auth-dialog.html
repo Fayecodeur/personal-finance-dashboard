@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{ mode === 'login' ? 'Connexion' : 'Inscription' }}</h2>
+
+<mat-dialog-content>
+    @if (mode === 'login') {
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="dialog-form">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+            @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+            <mat-error>Email invalide</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" />
+            @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+            <mat-error>6 caractères minimum</mat-error>
+            }
+        </mat-form-field>
+        @if (errorMessage) { <p class="error-message">{{ errorMessage }}</p> }
+        <button mat-raised-button color="primary" type="submit" class="full-width">Se connecter</button>
+        <p class="switch-text">Pas de compte ? <a (click)="switchMode('register')">S'inscrire</a></p>
+    </form>
+    } @else {
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="dialog-form">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="name" />
+            @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+            <mat-error>Le nom est requis</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+            @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+            <mat-error>Email invalide</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" />
+            @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+            <mat-error>6 caractères minimum</mat-error>
+            }
+        </mat-form-field>
+        @if (errorMessage) { <p class="error-message">{{ errorMessage }}</p> }
+        <button mat-raised-button color="primary" type="submit" class="full-width">S'inscrire</button>
+        <p class="switch-text">Déjà un compte ? <a (click)="switchMode('login')">Se connecter</a></p>
+    </form>
+    }
+</mat-dialog-content>
