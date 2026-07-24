@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--background);
   padding: 24px;
 }
@@ -10,11 +10,11 @@
 .login-card {
   width: 100%;
   max-width: 400px;
-  padding: 24px;
+  padding: 28px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
 }
 
 mat-card-title {
@@ -49,4 +49,37 @@ mat-card-footer a {
 
 mat-card-footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+  .login-wrapper {
+    padding: 16px;
+    align-items: center;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  mat-card-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .full-width {
+    margin-bottom: 8px;
+  }
+
+  button.full-width {
+    height: 46px;
+    font-size: .95rem;
+  }
+
+  mat-card-footer {
+    margin-top: 12px;
+    font-size: .9rem;
+  }
 }
