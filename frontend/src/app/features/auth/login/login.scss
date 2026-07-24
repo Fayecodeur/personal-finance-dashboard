@@ -10,13 +10,13 @@
 .login-card {
   width: 100%;
   max-width: 400px;
+  box-sizing: border-box;
   padding: 28px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
 }
-
 mat-card-title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -26,6 +26,15 @@ mat-card-title {
 .full-width {
   width: 100%;
   margin-bottom: 12px;
+}
+
+form {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  min-width: 0;
 }
 
 .error-message {
@@ -53,10 +62,11 @@ mat-card-footer a:hover {
 
 @media (max-width: 600px) {
 
-  .login-wrapper {
-    padding: 16px;
-    align-items: center;
-  }
+.login-wrapper {
+  padding: 16px;
+  align-items: flex-start;
+  padding-top: 40px;
+}
 
   .login-card {
     max-width: 100%;

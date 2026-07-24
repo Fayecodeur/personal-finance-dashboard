@@ -626,3 +626,29 @@ a:hover {
   font-family: var(--font-body) !important;
 
 }
+
+/* ==========================
+   MOBILE FIXES
+========================== */
+
+.mat-mdc-form-field {
+  width: 100%;
+  min-width: 0 !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  width: 100%;
+}
+
+.mat-mdc-form-field-infix {
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+.mat-mdc-input-element {
+  width: 100%;
+}
+
+.mat-mdc-card {
+  max-width: 100%;
+}
