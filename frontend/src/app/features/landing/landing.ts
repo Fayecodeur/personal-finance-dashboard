@@ -23,7 +23,8 @@ export class Landing {
     this.menuOpen = false;
 
     this.dialog.open(AuthDialog, {
-      width: '400px',
+      width: 'calc(100vw - 32px)',
+      maxWidth: '400px',
       data: { mode },
     });
   }
