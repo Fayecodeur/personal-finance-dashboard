@@ -2,9 +2,8 @@
   display: block;
   font-family: var(--font-body);
   background: var(--background);
-  min-height: 100vh;
+  min-height: 100dvh;
 }
-
 
 /* =========================
    NAVBAR
@@ -75,10 +74,25 @@
 }
 
 
-.desktop-menu a {
+.link-button {
+  background: transparent;
+  border: none;
   cursor: pointer;
+
   color: var(--text);
-  font-weight: 500;
+
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 8px 12px;
+
+  transition: .2s ease;
+}
+
+
+.link-button:hover {
+  color: var(--primary);
 }
 
 
@@ -91,10 +105,12 @@
 
 /* Dropdown mobile caché */
 
-.mobile-dropdown {
-  display: none;
-}
+.mobile-dropdown .link-button {
 
+  width:100%;
+  text-align:center;
+
+}
 
 
 /* =========================
@@ -103,9 +119,7 @@
 
 .hero {
   text-align: center;
-
-  padding: 160px 24px 60px;
-
+  padding:110px 18px 40px;
   max-width: 720px;
   margin: auto;
 }
@@ -131,9 +145,8 @@
 
 .hero h1 {
 
-  font-size: 2.6rem;
-
-  line-height: 1.2;
+   font-size:1.75rem;
+   line-height:1.25;
 
   margin-bottom: 16px;
 
@@ -349,7 +362,7 @@
   .mobile-dropdown {
 
     position:fixed;
-
+    animation: slideDown .2s ease;
     display:flex;
 
     flex-direction:column;
@@ -462,6 +475,19 @@
 
     padding:20px;
 
+  }
+
+}
+@keyframes slideDown {
+
+  from {
+    opacity:0;
+    transform:translateY(-10px);
+  }
+
+  to {
+    opacity:1;
+    transform:translateY(0);
   }
 
 }

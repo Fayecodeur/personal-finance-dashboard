@@ -1,5 +1,6 @@
 <nav class="navbar">
 
+    <!-- Brand -->
     <div class="brand">
         <span class="brand-mark">F</span>
         <span class="brand-name">FinTrack</span>
@@ -9,100 +10,235 @@
     <!-- Desktop -->
     <div class="nav-links desktop-menu">
 
-        <button mat-icon-button (click)="themeService.toggleTheme()">
+        <button mat-icon-button aria-label="Changer le thème" (click)="themeService.toggleTheme()">
+
             <mat-icon>
                 {{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}
             </mat-icon>
+
         </button>
 
-        <a (click)="openAuth('login')">
+
+        <button class="link-button" (click)="openAuth('login')">
+
             Connexion
-        </a>
+
+        </button>
+
 
         <button mat-raised-button color="primary" (click)="openAuth('register')">
+
             Inscription
+
         </button>
 
+
     </div>
+
 
 
     <!-- Mobile -->
     <div class="mobile-menu">
 
-        <button mat-icon-button (click)="themeService.toggleTheme()">
+
+        <button mat-icon-button aria-label="Changer le thème" (click)="themeService.toggleTheme()">
+
             <mat-icon>
                 {{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}
             </mat-icon>
+
         </button>
 
 
-        <button mat-icon-button (click)="menuOpen = !menuOpen">
+
+        <button mat-icon-button aria-label="Menu" (click)="menuOpen = !menuOpen">
+
             <mat-icon>
                 {{ menuOpen ? 'close' : 'menu' }}
             </mat-icon>
+
         </button>
 
+
     </div>
+
 
 </nav>
 
 
+
+<!-- Menu mobile -->
 @if(menuOpen){
 
 <div class="mobile-dropdown">
 
-    <a (click)="openAuth('login')">
+
+    <button class="link-button" (click)="openAuth('login')">
+
         Connexion
-    </a>
+
+    </button>
+
 
 
     <button mat-raised-button color="primary" (click)="openAuth('register')">
+
         Inscription
+
     </button>
+
 
 </div>
 
 }
 
+
+
+
+
+<!-- Hero -->
+
 <section class="hero">
-    <span class="hero-badge">Gestion financière personnelle</span>
-    <h1>Maîtrisez vos finances,<br />en toute simplicité.</h1>
+
+
+    <span class="hero-badge">
+        Gestion financière personnelle
+    </span>
+
+
+
+    <h1>
+        Maîtrisez vos finances,
+        <br>
+        en toute simplicité.
+    </h1>
+
+
+
     <p>
-        FinTrack vous aide à suivre vos revenus et dépenses, comprendre vos habitudes
-        financières et garder le contrôle sur votre budget, jour après jour.
+        FinTrack vous aide à suivre vos revenus et dépenses,
+        comprendre vos habitudes financières et garder le contrôle
+        sur votre budget, jour après jour.
     </p>
+
+
+
     <div class="hero-actions">
 
+
         <button mat-raised-button color="primary" class="hero-btn" (click)="openAuth('register')">
+
             Commencer gratuitement
+
         </button>
+
 
 
         <button mat-stroked-button class="hero-btn" (click)="openAuth('login')">
+
             Se connecter
+
         </button>
 
+
     </div>
+
+
 </section>
+
+
+
+
+
+
+<!-- Fonctionnalités -->
 
 <section class="features">
+
+
     <div class="feature-card">
-        <div class="icon-badge"><mat-icon>dashboard</mat-icon></div>
-        <h3>Tableau de bord clair</h3>
-        <p>Visualisez votre solde, vos revenus et dépenses en un coup d'œil.</p>
+
+        <div class="icon-badge">
+            <mat-icon>
+                dashboard
+            </mat-icon>
+        </div>
+
+        <h3>
+            Tableau de bord clair
+        </h3>
+
+        <p>
+            Visualisez votre solde, vos revenus et dépenses en un coup d'œil.
+        </p>
+
     </div>
+
+
+
+
     <div class="feature-card">
-        <div class="icon-badge"><mat-icon>swap_horiz</mat-icon></div>
-        <h3>Transactions simplifiées</h3>
-        <p>Ajoutez, recherchez et triez vos transactions facilement.</p>
+
+        <div class="icon-badge">
+            <mat-icon>
+                swap_horiz
+            </mat-icon>
+        </div>
+
+
+        <h3>
+            Transactions simplifiées
+        </h3>
+
+
+        <p>
+            Ajoutez, recherchez et triez vos transactions facilement.
+        </p>
+
+
     </div>
+
+
+
+
+
     <div class="feature-card">
-        <div class="icon-badge"><mat-icon>insights</mat-icon></div>
-        <h3>Statistiques utiles</h3>
-        <p>Comprenez vos habitudes grâce à des graphiques clairs.</p>
+
+
+        <div class="icon-badge">
+
+            <mat-icon>
+                insights
+            </mat-icon>
+
+        </div>
+
+
+
+        <h3>
+            Statistiques utiles
+        </h3>
+
+
+
+        <p>
+            Comprenez vos habitudes grâce à des graphiques clairs.
+        </p>
+
+
     </div>
+
+
 </section>
 
+
+
+
+
 <footer class="landing-footer">
-    <p>© 2026 FinTrack. Projet universitaire.</p>
+
+    <p>
+        © 2026 FinTrack. Projet universitaire.
+    </p>
+
 </footer>
